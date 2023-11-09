@@ -66,6 +66,7 @@ conditional_stmt
 | non_conditional_stmt 
 | comment
 
+
 // CONDITIONAL (IF ELSE) STATEMENTS
 
 conditional_stmt : 
@@ -75,7 +76,7 @@ conditional_stmt :
 	| IF LP logic_expr RP LC stmt_list RC elif_stmts
 
 else_stmt : 
-ELSE LP stmt_list RC
+ELSE LC stmt_list RC
 
 elif_stmts : 
 elif_stmt 
@@ -132,6 +133,7 @@ INT IDENTIFIER ASSIGN_OP exp
 assignment_stmt:
  IDENTIFIER ASSIGN_OP exp
 	| list_indexing ASSIGN_OP exp
+	| IDENTIFIER ASSIGN_OP list
 
 
 // LIST CREATION
@@ -180,7 +182,7 @@ while
 while:  
 WHILE LP logic_expr RP LC stmt_list RC
 for:  
-FOR LP int_initiliazation SC logic_expr SC arithmetic_operation RP LC stmt_list RC
+FOR LP int_initiliazation SC logic_expr SC IDENTIFIER ASSIGN_OP arithmetic_operation SC RP LC stmt_list RC
 do_while:  DO LC stmt_list RC WHILE LP logic_expr RP SC
 
 
@@ -212,7 +214,8 @@ parameter_call:   const_or_var
 		| const_or_var COMMA parameter_call
 
 func_stmt:  
-FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN const_or_var RC
+FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN exp SC RC
+
 func_call:  
 IDENTIFIER LP parameter_call RP
 
@@ -232,7 +235,6 @@ CONST
 comment :
  	MULTI_LINE_COMMENT
 	| COMMENT
-
 
 %%
 
