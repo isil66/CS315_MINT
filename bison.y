@@ -90,18 +90,18 @@ logic_expr : basic_logic_expr XOR logic_expr
 		| basic_logic_expr
 
 
-basic_logic_expr : const_or_var GREATER_OR_EQUAL const_or_var 
-			| const_or_var SMALLER_OR_EQUAL const_or_var 
+basic_logic_expr : exp GREATER_OR_EQUAL exp 
+			| exp SMALLER_OR_EQUAL exp 
 			| relational_operation
 			| LP logic_expr RP
 
-relational_operation : const_or_var GREATER const_or_var 
-			    | const_or_var SMALLER const_or_var
+relational_operation : exp GREATER exp 
+			    | exp SMALLER exp
 			    | equality_operation
 
 equality_operation : 
-const_or_var EQUALS const_or_var
-			  | const_or_var NOT_EQUAL const_or_var
+	exp EQUALS exp
+	| exp NOT_EQUAL exp
 
 
 // NON-CONDITIONAL STATEMENTS
@@ -116,7 +116,7 @@ arithmetic_operation SC
 //DECLARATION, INITIALIZATION, ASSIGNMENT
 declaration_stmt: 
 INT IDENTIFIER
-| LIST IDENTIFIER WITH_SIZE CONST
+| LIST IDENTIFIER WITH_SIZE const_or_var
 | MATRIX IDENTIFIER WITH_DIMENSION CONST
 
 
