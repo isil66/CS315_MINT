@@ -59,7 +59,7 @@ out[ \t]*<< 				return OUTPUT_STREAM;
 {letter}+{alphanumeric}*	return IDENTIFIER;
 \n						{extern int lineno; lineno++;}
 {digit}+		 			return CONST;
-\/\/.*						return COMMENT;
+\/\/.*						{}
 .
 %%
 int yywrap(void){
