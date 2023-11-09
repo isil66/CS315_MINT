@@ -126,12 +126,12 @@ int_initiliazation
 
 
 int_initiliazation:  
-INT IDENTIFIER ASSIGN_OP const_or_var
+INT IDENTIFIER ASSIGN_OP exp
 
 
 assignment_stmt:
- IDENTIFIER ASSIGN_OP const_or_var
-	| list_indexing ASSIGN_OP const_or_var
+ IDENTIFIER ASSIGN_OP exp
+	| list_indexing ASSIGN_OP exp
 
 
 // LIST CREATION
@@ -205,13 +205,16 @@ STRING
 
 
 // FUNCTIONS
-parameter:    const_or_var
-		| const_or_var COMMA parameter 
-|
+parameter_dec:    INT const_or_var
+		| INT const_or_var COMMA parameter_dec 
+
+parameter_call:   const_or_var
+		| const_or_var COMMA parameter_call
+
 func_stmt:  
-FUNC IDENTIFIER LP parameter RP LC stmt_list RETURN const_or_var RC
+FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN const_or_var RC
 func_call:  
-IDENTIFIER LP parameter RP
+IDENTIFIER LP parameter_call RP
 
 // NUMBERS and VARIABLES
 const_or_var: 
