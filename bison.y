@@ -3,14 +3,12 @@
 #include <stdlib.h>
 int yylex(void);
 int yyerror(char* s);
-extern int yylineno;
 %}
 
 
 %token	LSB					
 %token	RSB
-%token	MULTI_LINE_COMMENT						
-%token	COMMENT
+%token  REFERENCE
 %token	START
 %token	END
 %token	FUNC
@@ -64,7 +62,6 @@ stmt
 stmt : 
 conditional_stmt 
 | non_conditional_stmt 
-| comment
 
 
 // CONDITIONAL (IF ELSE) STATEMENTS
@@ -211,7 +208,9 @@ parameter_dec:    INT const_or_var
 		| INT const_or_var COMMA parameter_dec 
 
 parameter_call:   const_or_var
+		| REFERENCE const_or_var
 		| const_or_var COMMA parameter_call
+		| REFERENCE const_or_var COMMA parameter_call
 
 func_stmt:  
 FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN exp SC RC
@@ -230,11 +229,6 @@ const_int:
 CONST 
 | MINUS CONST
 
-
-// COMMENTS
-comment :
- 	MULTI_LINE_COMMENT
-	| COMMENT
 
 %%
 

@@ -7,14 +7,14 @@ alphanumeric				({digit}|{letter})
 "["					 		return LSB;
 "]"							return RSB;
 <INITIAL>{
-"##"              			{return MULTI_LINE_COMMENT;
+"##"              					{
 							BEGIN(IN_COMMENT);}
 }
 <IN_COMMENT>{
 "##"      					BEGIN(INITIAL);
 [^#\n]
 "#"
-\n        					yylineno++;
+\n        					{extern int lineno; lineno++ ;}
 }
 start 						return START;
 end 						return END;
@@ -48,6 +48,7 @@ out[ \t]*<< 				return OUTPUT_STREAM;
 \( 							return LP;
 \) 							return RP;
 \; 							return SC;
+\&						    return REFERENCE; 
 \+  		   				return PLUS;
 \-  						return MINUS;
 \*  						return MULT_OP;
