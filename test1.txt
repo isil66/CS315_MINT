@@ -1,0 +1,22 @@
+start
+out << "Enter " , (2 + 3) ,  " integers x, y and z:\n" ;
+Int x ;
+Int y ;
+Int z ;
+in >> x ;
+in >> y ;
+in >> z ;
+
+while ( x == 0 or y == 0 or z == 0 ) { 
+	out << "Enter only non-zero values. \n" ;
+in >> x ;
+in >> y ;
+in >> z ;
+	
+}
+
+Int result = x * y * z ;
+out << result ;
+
+end
+
