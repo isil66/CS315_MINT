@@ -2,7 +2,7 @@ start
 
 Int year ;
 Int angel = 0 ;
-Int digit = 10 ;
+Int digit = 10xys ; // SYNTAX ERROR ON LINE 5! It should be equal to an integer value, or identifier. Identifier cannot start with a number
 
 out << "This program calculates your angel number based on your year of birth and creates a 2x2 Matrix filled with your angel number. Please enter your birth year:\n" ;
 
@@ -13,12 +13,12 @@ while ( year > 0 ) {
 	year = year / 10 ; 
 }
 
-angel = angel % 10 +(angel / 10)  % 10 ;
+angel = angel % 10 +(angel / 10)  %%% 10 ; // SYNTAX ERROR ON LINE 16! There is no such action '%%%'. 
 
 Matrix luckyM with dimension 2 ;
-for ( Int i = 0 ; i < 2 ; i = i + 1 ; ){
+for ( Int i = 0; i < 2 ; i = i + 1 ; ){ 
 	for ( Int j = 0 ; j < 2 ; j = j + 1 ; ) {
-	luckyM [ i ] [ j ] = angel ;
+	luckyM [ i++ ] [ j ] = angel ; // SYNTAX ERROR ON LINE 21! There is no post increment operation in our language.
 	}
 }
 

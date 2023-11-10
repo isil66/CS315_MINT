@@ -66,7 +66,6 @@ conditional_stmt
 
 
 // CONDITIONAL (IF ELSE) STATEMENTS
-
 conditional_stmt : 
   IF LP logic_expr RP LC stmt_list RC else_stmt
             | IF LP logic_expr RP LC stmt_list RC elif_stmts else_stmt
@@ -81,6 +80,7 @@ elif_stmt
             | elif_stmt elif_stmts
 
 elif_stmt : ELIF LP logic_expr RP LC stmt_list RC
+
 // LOGICAL EXPRESSIONS
 logic_expr : basic_logic_expr XOR logic_expr
 		| basic_logic_expr OR logic_expr
@@ -88,18 +88,18 @@ logic_expr : basic_logic_expr XOR logic_expr
 		| basic_logic_expr
 
 
-basic_logic_expr : exp GREATER_OR_EQUAL exp 
-			| exp SMALLER_OR_EQUAL exp 
+basic_logic_expr : arithmetic_operation GREATER_OR_EQUAL arithmetic_operation 
+			| arithmetic_operation SMALLER_OR_EQUAL arithmetic_operation 
 			| relational_operation
 			| LP logic_expr RP
 
-relational_operation : exp GREATER exp 
-			    | exp SMALLER exp
+relational_operation : arithmetic_operation GREATER arithmetic_operation 
+			    | arithmetic_operation SMALLER arithmetic_operation
 			    | equality_operation
 
 equality_operation : 
-	exp EQUALS exp
-	| exp NOT_EQUAL exp
+	arithmetic_operation EQUALS arithmetic_operation
+	| arithmetic_operation NOT_EQUAL arithmetic_operation
 
 
 // NON-CONDITIONAL STATEMENTS
@@ -111,6 +111,7 @@ arithmetic_operation SC
 | initialization_stmt SC 
 | func_stmt
 | io_stmt SC
+
 //DECLARATION, INITIALIZATION, ASSIGNMENT
 declaration_stmt: 
 INT IDENTIFIER
@@ -218,7 +219,8 @@ parameter_call:   const_or_var
 		|
 
 func_stmt:  
-FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN exp SC RC
+FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN arithmetic_operation SC RC
+| FUNC IDENTIFIER LP parameter_dec RP LC RETURN arithmetic_operation SC RC
 
 func_call:  
 IDENTIFIER LP parameter_call RP

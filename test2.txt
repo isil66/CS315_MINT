@@ -16,6 +16,15 @@ func foo ( Int p , Int q )
 return result ;
 }
 
+func recursiveTest (Int x) 
+{
+    if(x % 101 == 0)
+    {
+        x = x / 2;
+    }
+    return 2 + recursiveTest(&x);
+}
+
 List listA with size 4 ;
 List listB with size 3 ;
 
@@ -28,7 +37,7 @@ for ( Int i = 0 ; i < 4 ; i = i + 1 ; ) //27
     for ( Int j = 0 ; j < 3 ; j = j + 1 ; )
     {
         // Call foo function to store result in c
-        c = foo ( & A [ i ] , &B [ j ] ) ;
+        c = foo ( & A [ i ] , B [ j ] ) ;
         
         // Print
         out << "a: " ;

@@ -4,10 +4,10 @@ out << " This program aims to teach xor logical operator to cs 223 students. The
 
 Int signal1 ;
 Int signal2 ;
-out << "Enter signal1 and signal2 : \n" ;
+outtt << "Enter signal1 and signal2 : \n" ; // SYNTAX ERROR ON LINE 7! There is no such keyword for output stream.
 
 do {
-	in >> signal1 ;
+	in > signal1 ; // SYNTAX ERROR ON LINE 10! There is no such action. It must be 'in >>'
 	in >> signal2 ;
 	
 	if ( ( ( signal1 == 1 ) xor ( signal2 == 0 ) ) or ( ( signal1 == 0) xor ( signal2 == 1 ) ) ) {
