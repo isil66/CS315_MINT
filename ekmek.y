@@ -206,12 +206,14 @@ STRING
 
 // FUNCTIONS
 parameter_dec:    INT const_or_var
-		| INT const_or_var COMMA parameter_dec 
+		| INT const_or_var COMMA parameter_dec
+		| 
 
 parameter_call:   const_or_var
 		| REFERENCE const_or_var
 		| const_or_var COMMA parameter_call
 		| REFERENCE const_or_var COMMA parameter_call
+		|
 
 func_stmt:  
 FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN exp SC RC
