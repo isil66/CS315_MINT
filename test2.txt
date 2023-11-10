@@ -40,7 +40,7 @@ for ( Int i = 0 ; i < 4 ; i = i + 1 ; ) //27
     for ( Int j = 0 ; j < 3 ; j = j + 1 ; )
     {
         // Call foo function to store result in c
-        c = foo ( & A [ i ] , B [ j ] ) ;
+        c = foo ( A [ i ] , B [ j ] ) ;
         
         // Print
         out << "a: " ;

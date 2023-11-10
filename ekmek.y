@@ -213,7 +213,7 @@ parameter_dec:    INT const_or_var
 		| 
 
 parameter_call:   const_or_var
-		| REFERENCE const_or_var
+		| REFERENCE IDENTIFIER
 		| const_or_var COMMA parameter_call
 		| REFERENCE const_or_var COMMA parameter_call
 		|
