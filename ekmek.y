@@ -208,22 +208,28 @@ STRING
 
 
 // FUNCTIONS
+parameter_decs: parameter_dec
+ 			|
+
+
 parameter_dec:    INT const_or_var
 		| INT const_or_var COMMA parameter_dec
-		| 
+		 
+parameter_calls: parameter_call
+ 			|
 
 parameter_call:   const_or_var
 		| REFERENCE IDENTIFIER
 		| const_or_var COMMA parameter_call
 		| REFERENCE IDENTIFIER COMMA parameter_call
-		|
+		
 
 func_stmt:  
-FUNC IDENTIFIER LP parameter_dec RP LC stmt_list RETURN arithmetic_operation SC RC
-| FUNC IDENTIFIER LP parameter_dec RP LC RETURN arithmetic_operation SC RC
+FUNC IDENTIFIER LP parameter_decs RP LC stmt_list RETURN arithmetic_operation SC RC
+| FUNC IDENTIFIER LP parameter_decs RP LC RETURN arithmetic_operation SC RC
 
 func_call:  
-IDENTIFIER LP parameter_call RP
+IDENTIFIER LP parameter_calls RP
 
 // NUMBERS and VARIABLES
 const_or_var: 
