@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 int yylex(void);
-int yyerror(char* s);
+void yyerror(char* s);
 %}
 
 
@@ -235,7 +235,7 @@ CONST
 
 #include "lex.yy.c"
 int lineno=1;
-int yyerror(char *s){
+void yyerror(char *s){
   fprintf(stderr, "%s on line %d\n", s,lineno);
 }
 
