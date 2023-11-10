@@ -10,10 +10,10 @@ in >> year ;
 
 while ( year > 0 ) {
 	angel = (angel + year % digit ) ;
-	year = ( year / 10 ) ; 
+	year = year / 10 ; 
 }
 
-angel = ( angel % 10 + ( angel / 10 ) % 10 ) ;
+angel = angel % 10 +(angel / 10)  % 10 ;
 
 Matrix luckyM with dimension 2 ;
 for ( Int i = 0 ; i < 2 ; i = i + 1 ; ){

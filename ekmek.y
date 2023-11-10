@@ -114,8 +114,8 @@ arithmetic_operation SC
 //DECLARATION, INITIALIZATION, ASSIGNMENT
 declaration_stmt: 
 INT IDENTIFIER
-| LIST IDENTIFIER WITH_SIZE const_or_var
-| MATRIX IDENTIFIER WITH_DIMENSION CONST
+| LIST IDENTIFIER WITH_SIZE arithmetic_operation
+| MATRIX IDENTIFIER WITH_DIMENSION arithmetic_operation
 
 
 initialization_stmt: 
@@ -125,12 +125,12 @@ int_initiliazation
 
 
 int_initiliazation:  
-INT IDENTIFIER ASSIGN_OP exp
+INT IDENTIFIER ASSIGN_OP arithmetic_operation
 
 
 assignment_stmt:
- IDENTIFIER ASSIGN_OP exp
-	| list_indexing ASSIGN_OP exp
+ IDENTIFIER ASSIGN_OP arithmetic_operation
+	| list_indexing ASSIGN_OP arithmetic_operation
 	| IDENTIFIER ASSIGN_OP list
 
 
@@ -142,8 +142,8 @@ list_helper :
 one_d_list 
 | matrix 
 one_d_list : 
-const_or_var
-| const_or_var COMMA one_d_list
+arithmetic_operation
+| arithmetic_operation COMMA one_d_list
 matrix : 
 LSB one_d_list RSB
 	| LSB one_d_list RSB COMMA matrix
@@ -151,8 +151,10 @@ LSB one_d_list RSB
 
 // LIST INDEXING 
 list_indexing: 
-IDENTIFIER LSB const_or_var RSB
-	| IDENTIFIER LSB const_or_var RSB LSB const_or_var RSB
+IDENTIFIER LSB arithmetic_operation RSB
+	| IDENTIFIER LSB arithmetic_operation RSB LSB arithmetic_operation RSB
+
+
 // ARITHMETIC OPERATION 
 arithmetic_operation:
  arithmetic_operation PLUS term 
@@ -201,7 +203,7 @@ string_or_number
 
 string_or_number: 
 STRING
-| exp
+| arithmetic_operation
 
 
 // FUNCTIONS
