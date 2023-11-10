@@ -235,6 +235,7 @@ IDENTIFIER
 const_int:  
 CONST 
 | MINUS CONST
+| PLUS CONST
 
 
 %%

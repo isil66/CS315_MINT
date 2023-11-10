@@ -1,5 +1,5 @@
 start
-out << "Enter ", 2 + -3 + 5 - 1 ," integers x, y and z:\n" ;
+out << "Enter ", 2 + -3 + +5 - 1 ," integers x, y and z:\n" ;
 Int x ;
 Int ; // SYNTAX ERROR ON LINE 4! It must be 'Int y ;'
 Int z ;
