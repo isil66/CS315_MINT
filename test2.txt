@@ -16,6 +16,8 @@ func foo ( Int p , Int q )
 return result ;
 }
 
+
+//This is a random recursive function to show flexibilities of our functions. No call is made for that function.
 func recursiveTest (Int x) 
 {
     if(x % 101 == 0)
@@ -24,6 +26,7 @@ func recursiveTest (Int x)
     }
     return 2 + recursiveTest(&x);
 }
+
 
 List listA with size 4 ;
 List listB with size 3 ;
