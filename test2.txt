@@ -1,0 +1,44 @@
+start
+func foo ( Int p , Int q )
+{
+    out     << "Function Name: foo\n" ;
+    out << "p: " ;
+    out << p ;
+    out << "\nq: " ;
+    out << q ;
+    Int result ;
+    if ( p > q ) {
+        result = p ;
+    }
+    else { //13
+        result = q ;
+    }
+return result ;
+}
+
+List listA with size 4 ;
+List listB with size 3 ;
+
+listA = [ 5 , 0 , 3 , -7 ] ; //22
+listB = [ 9 , -2 , -1 ] ;
+
+Int c ;
+for ( Int i = 0 ; i < 4 ; i = i + 1 ; ) //27
+{
+    for ( Int j = 0 ; j < 3 ; j = j + 1 ; )
+    {
+        // Call foo function to store result in c
+        c = foo ( & A [ i ] , &B [ j ] ) ;
+        
+        // Print
+        out << "a: " ;
+        out << A [ i ] ;
+        out << "\nb: " ;
+        out << B [ j ] ;
+        out << "\nc: " ;
+        out << c ;
+    }
+}
+
+end
+

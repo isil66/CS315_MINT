@@ -15,8 +15,7 @@ in >> z ;
 	
 }
 
-Int result = x * y * z ;
+Int result = ( x * y * z );
 out << result ;
-
 end
 

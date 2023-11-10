@@ -1,0 +1,59 @@
+start
+
+out << "This program has three functions, and it operates these functions according to the list that user determine.\n" ;
+
+##mutlline
+Comment
+test##
+
+out << "Choose a function: \n1. Sum odd/even check \n2. Find the largest number \n3. Find the smallest number\n" ;
+Int choice ;
+in >> choice ;
+
+//one line comment test;random symbols2379479202**???##
+
+Int size ;
+out << "Enter the size of the list: " ;
+in >> listSize ;
+List list with size listSize ;
+
+//Fill the List
+for ( Int i = 0 ; i < size ; i = i + 1 ; ) {
+	Int number ;
+	in >> number ;
+	list [ i ] = number ;
+}
+
+if ( choice == 1 ) {
+	Int total = 0 ;
+	for ( Int i = 0 ; i < listSize ; i = i + 1 ; ) {
+		total = ( total + list [ i ] ) ;
+	}
+
+	if ( ( total % 2 ) == 0 ) {
+		out << "The sum of the numbers is even.\n" ;
+	} 
+else {
+		out << "The sum of the numbers is odd.\n" ;
+	}
+}
+elif ( choice == 2 ) {
+	Int maxNum = list [ 0 ] ;
+	for ( Int i = 0 ; i < listSize ; i = i + 1 ; ) {
+		if ( list [ i ] > maxNum ) {
+			maxNum = list [ i ] ;
+		}
+	}
+	out << "The largest number in the list is " , maxNum , ".\n" ;
+}
+else {
+	Int minNum = list [ 0 ] ;
+	for ( Int i = 0 ; i < listSize; i = i + 1 ; ) {
+		if ( list [ i ] < minNum ) {
+			minNum = list [ i ] ;
+		}
+	}
+	out << "The smallest number in the list is " , minNum , ".\n" ;
+}
+
+end

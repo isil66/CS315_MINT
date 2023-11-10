@@ -1,0 +1,52 @@
+start
+
+// Print program description
+out << "This program calculates the factorial of a given number.\n";
+
+Int number;
+out << "Enter a number to calculate its factorial: ";
+in >> number;
+
+Int factorial = 1;
+
+// Calculate factorial using a loop
+for ( Int i = 1 ; i <= number ; i = i + 1 ; ) {
+    factorial = ( factorial * i ) ;
+}
+
+out << "The factorial of " , number , " is: " , factorial , ".\n";
+
+
+// Print program description
+out << "This program calculates the average of a list and checks if it's above or below 50.\n";
+
+Int listSize;
+out << "Enter the size of the list: ";
+in >> listSize;
+List numbers with size listSize;
+
+// Initialize sum and average
+Int sum = 0;
+Int average;
+
+// Input numbers into the List
+out << "Please enter " , listSize , " numbers:\n";
+for ( Int i = 0 ; i < listSize ; i = i + 1 ; ) {
+    Int number;
+    in >> number;
+    numbers[i] = number;
+    sum = ( sum + number );
+}
+
+// Calculate average
+average = ( sum / listSize ) ;
+
+// Check if average is above or below 50
+if ( average >= 50 ) {
+    out << "The average of the list is above or equal to 50.\n";
+}
+else {
+    out << "The average of the list is below 50.\n";
+}
+
+end

@@ -1,0 +1,23 @@
+start
+
+out << " This program aims to teach xor logical operator to cs 223 students. The program will initially take two signal inputs from the user and calculates their xor results, if xor result is 1 it will print Correct ! and the program will terminate. Else they will try again until they find the correct = true xor results of two signals. " ;
+
+Int signal1 ;
+Int signal2 ;
+out << "Enter signal1 and signal2 : \n" ;
+
+do {
+	in >> signal1 ;
+	in >> signal2 ;
+	
+	if ( ( ( signal1 == 1 ) xor ( signal2 == 0 ) ) or ( ( signal1 == 0) xor ( signal2 == 1 ) ) ) {
+		out << "Correct ! \n" ;
+	}
+	else {
+		out << "Try again. XOR result is wrong.\n" ;
+	}
+	
+} while ( signal1 == signal2 ) ; 
+
+end
+

@@ -1,0 +1,27 @@
+start
+
+Int year ;
+Int angel = 0 ;
+Int digit = 10 ;
+
+out << "This program calculates your angel number based on your year of birth and creates a 2x2 Matrix filled with your angel number. Please enter your birth year:\n" ;
+
+in >> year ;
+
+while ( year > 0 ) {
+	angel = (angel + year % digit ) ;
+	year = ( year / 10 ) ; 
+}
+
+angel = ( angel % 10 + ( angel / 10 ) % 10 ) ;
+
+Matrix luckyM with dimension 2 ;
+for ( Int i = 0 ; i < 2 ; i = i + 1 ; ){
+	for ( Int j = 0 ; j < 2 ; j = j + 1 ; ) {
+	luckyM [ i ] [ j ] = angel ;
+	}
+}
+
+out << "Your angel number is: " , angel ;
+end
+
