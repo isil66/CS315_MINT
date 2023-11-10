@@ -82,9 +82,9 @@ elif_stmt
 elif_stmt : ELIF LP logic_expr RP LC stmt_list RC
 
 // LOGICAL EXPRESSIONS
-logic_expr : basic_logic_expr XOR logic_expr
-		| basic_logic_expr OR logic_expr
-		| basic_logic_expr AND logic_expr
+logic_expr :  logic_expr XOR basic_logic_expr
+		| logic_expr OR basic_logic_expr
+		| logic_expr AND basic_logic_expr
 		| basic_logic_expr
 
 
